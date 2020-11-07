@@ -1,0 +1,7 @@
+{
+  "name": "ATuCasaUsers",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
