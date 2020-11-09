@@ -1,0 +1,51 @@
+<div class="d-flex flex-column h-100">
+  <nav
+    class="py-3 px-4 bg-white d-flex justify-content-between align-items-center"
+    style="
+      border-bottom: 1px solid #ccc;
+      box-shadow: 0 0 5px 0px rgba(48, 48, 48, 0.568);
+      z-index: 2;
+    "
+  >
+    <div class="d-flex align-items-center">
+      <img src="assets/images/logo-color-banner.png" height="80px" />
+    </div>
+
+    <div class="d-flex align-items-center text-primary">
+      <h6 class="mr-5">
+        <i class="fas fa-user mr-3"></i
+        ><span class="text-secondary">Nombre de Usuario</span>
+      </h6>
+      <h6><i class="fas fa-lock-open"></i></h6>
+    </div>
+  </nav>
+
+  <main
+    class="flex-fill w-100 py-3 d-flex justify-content-start align-items-center"
+    style="background: rgb(241, 241, 241)"
+  >
+    <app-menu-sidebar class="h-100"></app-menu-sidebar>
+
+    <div
+      class="mx-3 bg-white flex-fill h-100"
+      style="
+        box-shadow: 0 0 20px 0px rgba(48, 48, 48, 0.568);
+        border-radius: 0.3rem;
+        overflow: auto;
+      "
+    >
+      <router-outlet></router-outlet>
+    </div>
+  </main>
+
+  <footer
+    class="text-primary p-3 w-100 align-items-center justify-content-center d-flex"
+    style="
+      box-shadow: 0 0 5px 0px rgba(48, 48, 48, 0.568);
+      border-top: 1px solid #ccc;
+      z-index: 2;
+    "
+  >
+    <b>atucasa.com | 2020</b>
+  </footer>
+</div>

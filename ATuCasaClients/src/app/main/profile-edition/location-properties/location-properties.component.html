@@ -1,0 +1,14 @@
+<div class="row">
+
+  <h1>{{namedAddress}}</h1>
+
+  <div class="col-md-12">
+    <p-gmap
+      #gmap
+      [options]="options"
+      [overlays]="overlays"
+      (onMapClick)="addMarker($event)"
+      [style]="{ width: '100%', height: '450px' }"
+    ></p-gmap>
+  </div>
+</div>

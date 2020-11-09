@@ -1,0 +1,87 @@
+<div class="container-fluid py-5 px-4">
+  <div class="p-3 row d-flex justify-content-between align-items-center">
+    <div>
+      <h1 class="font-weight-light text-primary">
+        Bienvenido <b>Nombre del Restaurante</b>
+      </h1>
+      <h4 class="font-weight-light text-secondary">
+        Tu último ingreso a la plataforma fue el
+        {{ "2020-02-13 19:12" | date: "dd/MM/yyyy HH:mm" }}
+      </h4>
+    </div>
+
+    <a
+      [routerLink]="['/orders']"
+      class="p-4 text-white text-center bg-warning"
+      style="text-decoration: none"
+    >
+      <h1 class="font-weight-light display-4">15</h1>
+      <h3 class="font-weight-light">Pedidos Activos</h3>
+    </a>
+  </div>
+
+  <hr class="my-4" />
+
+  <div class="row">
+    <div class="col-md-6 px-5">
+      <h4 class="text-primary">
+        <i class="fas fa-chart-line mr-3"></i> Mis estadísticas del mes
+      </h4>
+
+      <div class="row mt-4">
+        <div class="col-md-6 text-white text-center p-2">
+          <div class="p-4 bg-primary">
+            <h1 class="font-weight-light display-4">15</h1>
+            <h3 class="font-weight-light">Pedidos Realizados</h3>
+          </div>
+        </div>
+
+        <div class="col-md-6 text-white text-center p-2">
+          <div class="p-4 bg-secondary">
+            <h1 class="font-weight-light display-4">20%</h1>
+            <h3 class="font-weight-light">Aumento de Ventas</h3>
+          </div>
+        </div>
+
+        <div class="col-md-6 text-white text-center p-2">
+          <div class="p-4 bg-secondary">
+            <h1 class="font-weight-light display-4">220</h1>
+            <h3 class="font-weight-light">Km. Recorridos</h3>
+          </div>
+        </div>
+
+        <div class="col-md-6 text-white text-center p-2">
+          <div class="p-4 bg-primary">
+            <h1 class="font-weight-light display-4">
+              15.000<span style="font-size: 2rem"><small>cop</small></span>
+            </h1>
+            <h3 class="font-weight-light">Pedido Promedio</h3>
+          </div>
+        </div>
+
+        <!-- <div class="col-md-6 bg-secondary text-white text-center p-4">
+          <h1 class="font-weight-light">+0.5%</h1>
+          <h3 class="font-weight-light">Aumento en las Ventas</h3>
+        </div>
+
+        <div class="col-md-6 bg-primary text-white text-center p-4">
+          <h1 class="font-weight-light">220</h1>
+          <h3 class="font-weight-light">Kilómetros Recorridos</h3>
+        </div>
+
+        <div class="col-md-6 bg-secondary text-white text-center p-4">
+          <h1 class="font-weight-light">15.500cop</h1>
+          <h3 class="font-weight-light">Costo Promedio de Pedido</h3>
+        </div> -->
+      </div>
+    </div>
+
+    <div class="col-md-6 px-5">
+      <h4 class="text-primary">
+        <i class="fas fa-chart-area mr-3"></i> Mis ventas
+      </h4>
+
+      <p-chart type="line" [data]="data"></p-chart>
+    </div>
+  </div>
+</div>

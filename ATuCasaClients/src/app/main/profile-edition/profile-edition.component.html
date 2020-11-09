@@ -1,0 +1,61 @@
+<div class="container-fluid py-5 px-4">
+  <div class="px-3 row d-flex justify-content-between align-items-center">
+    <div style="width: 70%">
+      <div class="d-flex justify-content-start align-items-center">
+        <div
+          style="
+            min-width: 100px;
+            min-height: 100px;
+            background-color: #ccc;
+            border-radius: 1rem;
+            margin-right: 1.5rem;
+            background-image: url('assets/images/restaurant-default-pic.png');
+            background-size: cover;
+          "
+        ></div>
+
+        <div>
+          <h1 class="text-primary mb-3">Información de mi Restaurante</h1>
+          <p class="text-secondary font-weight-light">
+            A continuación podrás encontrar la información y datos de tu
+            restaurante. Recuerda que la información de este debe encontrarse al
+            100% para poder publicarlo en la aplicación. Una vez desees que el
+            restaurante sea visible en la aplicación, haz click en el botón
+            inferior.
+          </p>
+        </div>
+      </div>
+
+      <div class="mt-3 form-group d-flex align-items-center">
+        <p-inputSwitch [(ngModel)]="isVisible"></p-inputSwitch>
+        <label class="text-primary ml-3"><b>Publicado en aTuCasa.com</b></label>
+      </div>
+    </div>
+
+    <div class="d-flex align-items-center justify-content-center flex-fill">
+      <ngx-gauge
+        [type]="'arch'"
+        [value]="85"
+        [label]="'Perfil Completo'"
+        [append]="'%'"
+        foregroundColor="#cc0000"
+      >
+      </ngx-gauge>
+    </div>
+  </div>
+
+  <div class="row px-3">
+    <p-tabView>
+      <p-tabPanel header="Información General">
+        <app-general-properties></app-general-properties>
+      </p-tabPanel>
+      <p-tabPanel header="Logo & Imagen Corporativa"> Content 3 </p-tabPanel>
+      <p-tabPanel header="Ubicación del Restaurante">
+        <app-location-properties></app-location-properties>
+      </p-tabPanel>
+      <p-tabPanel header="Horarios y Disponibilidad"> Content 3 </p-tabPanel>
+
+      <p-tabPanel header="Información Tributaria"> Content 3 </p-tabPanel>
+    </p-tabView>
+  </div>
+</div>

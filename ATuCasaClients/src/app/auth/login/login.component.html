@@ -1,0 +1,52 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <h5 class="text-center mb-5 text-primary">
+        Inicio de Sesión | Portal de Clientes
+      </h5>
+
+      <form [formGroup]="loginForm">
+        <div class="form-group">
+          <label>E-Mail</label>
+          <input
+            type="text"
+            class="form-control"
+            type="text"
+            formControlName="email"
+            placeholder="E-Mail de Registro"
+          />
+        </div>
+
+        <div class="form-group">
+          <label>Contraseña</label>
+          <input
+            type="text"
+            class="form-control"
+            type="password"
+            formControlName="password"
+            placeholder="Contraseña"
+          />
+        </div>
+
+        <div class="form-row mt-5">
+          <a class="btn btn-primary w-100" role="button">Iniciar Sesión</a>
+        </div>
+
+        <div class="form-row">
+          <a class="btn btn-warning w-100" role="button" [routerLink]="['/auth', 'forgot-password']"
+            >Olvidé mi Contraseña</a
+          >
+        </div>
+
+        <div class="form-row">
+          <a
+            class="btn btn-secondary w-100"
+            [routerLink]="['/auth', 'registration']"
+            role="button"
+            >¡Quiero Registrarme!</a
+          >
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,86 @@
+<div class="form-row mt-3">
+  <div class="form-group col-md-6">
+    <label>Nombre del Restaurante</label>
+    <br />
+
+    <input
+      type="text"
+      pInputText
+      [style]="{ width: '100%' }"
+      placeholder="Nombre del Restaurante"
+    />
+    <br />
+    <small
+      >Este será el restaurante que los usuarios de
+      <b>aTuCasa.com</b> verán en la aplicación</small
+    >
+  </div>
+
+  <div class="form-group col-md-6">
+    <label>Tipos de Comida</label>
+    <br />
+    <p-multiSelect
+      [(ngModel)]="selectedRestaurants"
+      [options]="restaurantCategories"
+      optionLabel="label"
+      [style]="{ width: '100%' }"
+      appendTo="body"
+      placeholder="Selecciona los tipos de comida que ofreces."
+    ></p-multiSelect>
+    <br />
+
+    <small
+      >Esto permitirá que te encuentren de una manera más sencilla
+      cuando busquen en <b>aTuCasa.com</b></small
+    >
+  </div>
+</div>
+
+<div class="form-row mt-3">
+  <div class="form-group col-md-6">
+    <label>Correo Electrónico</label>
+    <br />
+
+    <div class="d-flex justify-content-start align-items-center">
+      <label class="text-muted font-weight-normal"
+        >micorreo@mirestaurante.com</label
+      >
+      <button
+        pButton
+        type="button"
+        label="Cambiar"
+        class="ml-3 p-button-outlined"
+      ></button>
+    </div>
+
+    <br />
+    <small
+      >Este será el medio por el cual nos pondremos en contacto contigo.
+      En caso de querer cambiarlo, enviaremos un mensaje de
+      confirmación.</small
+    >
+  </div>
+
+  <div class="form-group col-md-6">
+    <label>Teléfono de Contacto </label>
+    <br />
+
+    <div class="d-flex justify-content-start align-items-center">
+      <label class="text-muted font-weight-normal"
+        >+57 320 3163387</label
+      >
+      <button
+        pButton
+        type="button"
+        label="Cambiar"
+        class="ml-3 p-button-outlined"
+      ></button>
+    </div>
+    <br />
+    <small
+      >Este será el medio por el cual te informaremos de pedidos. Debes
+      contar con acceso a WhatsApp con este número. En caso de querer
+      cambiarlo, enviaremos un mensaje de confirmación.</small
+    >
+  </div>
+</div>

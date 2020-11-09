@@ -1,0 +1,42 @@
+<div
+  class="bg-primary text-white h-100 menu-sidebar-container d-flex flex-column align-items-center justify-content-between"
+  [class.is-expanded]="expanded"
+>
+  <div class="menu-container flex-fill">
+
+      <a class="menu-item" [routerLink]="['/']" [routerLinkActive]="'active'" [routerLinkActiveOptions]="{ exact: true }" >
+        <span class="menu-icon"><i class="fas fa-home"></i></span>
+        <span class="menu-label">Inicio</span>
+      </a>
+
+      <a class="menu-item" [routerLink]="['/orders']" [routerLinkActive]="'active'">
+        <span class="menu-icon"><i class="fas fa-cart-plus"></i></span>
+        <span class="menu-label">Mis Órdenes</span>
+      </a>
+
+      <a class="menu-item" [routerLink]="['/profile']" [routerLinkActive]="'active'">
+        <span class="menu-icon"><i class="fas fa-user-cog"></i></span>
+        <span class="menu-label">Mi Restaurante</span>
+      </a>
+
+      <a class="menu-item" [routerLink]="['/menu']" [routerLinkActive]="'active'">
+        <span class="menu-icon"><i class="fas fa-stream"></i></span>
+        <span class="menu-label">Mi Menú</span>
+      </a>
+
+  </div>
+
+  <div class="bottom-items-container">
+    <a class="menu-item" (click)="expanded = !expanded">
+      <span class="menu-icon" *ngIf="!expanded"
+        ><i class="fas fa-chevron-circle-right"></i
+      ></span>
+      <span class="menu-label" *ngIf="!expanded">Expandir</span>
+
+      <span class="menu-icon" *ngIf="expanded"
+        ><i class="fas fa-chevron-circle-left"></i
+      ></span>
+      <span class="menu-label" *ngIf="expanded">Contraer</span>
+    </a>
+  </div>
+</div>

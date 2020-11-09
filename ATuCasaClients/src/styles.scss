@@ -1,1 +1,145 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import 'variables';
+@import '../node_modules/bootstrap/scss/bootstrap';
+@import '../node_modules/@fortawesome/fontawesome-free/css/all.css';
+
+
+@import '../node_modules/primeng/resources/themes/saga-blue/theme.css';
+@import '../node_modules/primeng/resources/primeng.min.css';
+@import '../node_modules/primeicons/primeicons.css';
+
+
+@import url("https://fonts.googleapis.com/icon?family=Material+Icons");
+
+::selection {
+  background-color: rgba($primary, 0.75);
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .auth-panel {
+    width: 100%;
+  }
+
+  .auth-background {
+    display: none !important;
+  }
+}
+
+@media (min-width: 600px) {
+
+  .auth-panel {
+    max-width: 600px;
+    min-width: 40%;
+  }
+}
+
+.auth-panel {
+  background-color: white;
+  box-shadow: 0 0 20px 7px rgba(48, 48, 48, 0.568);
+}
+
+.auth-background {
+  background-color: #FFF8F8;
+  background-image: url('assets/images/loginbg.jpg');
+  background-size: cover;
+  ;
+}
+
+//Styling del Menu Sidebar
+
+.menu-sidebar-container {
+  box-shadow: 0 0 5px 0px rgba(48, 48, 48, 0.568);
+  transition: all 0.3s;
+  border-radius: 0 0.5rem 0.5rem 0;
+  overflow: hidden;
+}
+
+.menu-sidebar-container:not(.is-expanded) {
+  width: 50px;
+}
+
+.menu-sidebar-container.is-expanded {
+  width: 250px;
+}
+
+.menu-sidebar-container .menu-item {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 1rem;
+  cursor: pointer;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: all 0.3s;
+}
+
+
+.menu-sidebar-container:not(.is-expanded) .menu-item.active {
+  color: $primary;
+  background: white;
+  padding: 0.7rem;
+  margin: 0.3rem;
+  border-radius: 10rem
+}
+
+.menu-sidebar-container.is-expanded .menu-item.active {
+  background: white;
+  color: $primary;
+}
+
+
+
+.menu-sidebar-container .menu-item:hover:not(.active) {
+  background-color: darken($color:$primary, $amount: 10%);
+}
+
+.menu-sidebar-container .bottom-items-container .menu-item:hover {
+  background-color: darken($color:#FFBA08, $amount: 5%);
+}
+
+.menu-container,
+.bottom-items-container {
+  width: 100%;
+}
+
+.menu-sidebar-container:not(.is-expanded) .menu-label {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.3s;
+}
+
+.menu-sidebar-container:not(.is-expanded) .menu-item:hover .menu-label {
+  visibility: visible;
+  opacity: 100%;
+  display: block;
+  position: absolute;
+  background: black;
+  color: white;
+  z-index: 1000;
+  padding: 0.5rem;
+  border-radius: 1rem;
+  transform: translateY(calc(-50% - 0.5rem)) translateX(10px);
+}
+
+.menu-sidebar-container .menu-label {
+  margin-left: 0.8rem;
+  transition: display 0.3s;
+}
+
+.menu-sidebar-container .bottom-items-container .menu-item {
+  background: #FFBA08;
+}
+
+
+/*PrimeNG Theming*/
+
+a.p-tabview-nav-link:hover {
+  text-decoration: none !important;
+}
+
+label
+{
+  font-weight: 500;
+}
