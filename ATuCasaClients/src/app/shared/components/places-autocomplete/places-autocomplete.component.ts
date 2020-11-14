@@ -7,7 +7,8 @@ import {
   ViewChild,
 } from '@angular/core';
 
-import { } from '@types/googlemaps';
+
+declare var google;
 
 @Component({
   selector: 'app-places-autocomplete',

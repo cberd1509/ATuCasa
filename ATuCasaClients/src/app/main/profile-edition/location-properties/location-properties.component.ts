@@ -66,7 +66,7 @@ export class LocationPropertiesComponent implements OnInit {
       );
     });
 
-    let value = await geocodePromise;
+    let value:string = <string>await geocodePromise;
     this.namedAddress = value;
 
     let marker = this.overlays.find((ov) => ov.title == 'Mi Restaurante');
