@@ -1,0 +1,42 @@
+
+services:
+  - docker
+
+language: node_js
+dist: trusty
+os: linux
+
+
+install:
+  - echo "install nothing!" # put your normal pre-testing installs here
+
+script:
+  - echo "no tests!" # put your normal testing scripts here
+
+after_success:
+
+  - docker --version  # document the version travis is using
+  - pip install --user awscli # install aws cli w/o sudo
+  - export PATH=$PATH:$HOME/.local/bin # put aws in the path
+  - eval $(aws ecr get-login --region us-east-1) #needs AWS_ACCESS_KEY_ID and AWS_SECRET_ACCESS_KEY envvars
+
+  - docker build -t $DOCKER_REPO/atucasa-backend ./ATuCasaBackend
+  - docker build -t $DOCKER_REPO/atucasa-clients ./ATuCasaClients
+  - docker build -t $DOCKER_REPO/atucasa-users ./ATuCasaUsers
+  
+  #Image Pushing
+  - docker push $DOCKER_REPO/atucasa-backend
+  - docker push $DOCKER_REPO/atucasa-clients
+  - docker push $DOCKER_REPO/atucasa-users
+
+deploy:
+  provider: elasticbeanstalk
+  region: us-east-1
+  app: multi-docker
+  env: ebs-atucasa-prod
+  bucket_name: elasticbeanstalk-us-east-1-532928905538
+  bucket_path: atucasa
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: $AWS_SECRET_KEY
+  on:
+    branch: master
