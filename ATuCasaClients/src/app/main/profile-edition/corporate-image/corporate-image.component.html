@@ -1,0 +1,70 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="form-group col-md-6">
+      <div class="d-flex align-items-center mb-3">
+        <label>Imagen de Perfil (1:1)</label>
+
+        <button
+          pButton
+          type="button"
+          label="Guardar"
+          [disabled]=""
+          class="ml-3 p-button-outlined"
+        ></button>
+      </div>
+
+      <div class="custom-file mb-3">
+        <input
+          type="file"
+          class="custom-file-input"
+          id="customFile"
+          (change)="profileImageChangedEvent($event)"
+          accept="image/*"
+        />
+        <label class="custom-file-label" for="customFile">Seleccionar</label>
+      </div>
+
+      <image-cropper
+        [imageChangedEvent]="profileImageChangedEventVal"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="1 / 1"
+        format="png"
+        (imageCropped)="profileImageCropped($event)"
+        style="max-height: 500px"
+      ></image-cropper>
+    </div>
+
+    <div class="form-group col-md-6">
+      <div class="d-flex align-items-center mb-3">
+        <label>Banner del Restaurante (21:9)</label>
+
+        <button
+          pButton
+          type="button"
+          label="Guardar"
+          class="ml-3 p-button-outlined"
+        ></button>
+      </div>
+
+      <div class="custom-file mb-3">
+        <input
+          type="file"
+          class="custom-file-input"
+          id="customFile"
+          (change)="bannerImageChangedEvent($event)"
+          accept="image/*"
+        />
+        <label class="custom-file-label" for="customFile">Seleccionar</label>
+      </div>
+
+      <image-cropper
+        [imageChangedEvent]="bannerImageChangedEventVal"
+        [maintainAspectRatio]="true"
+        [aspectRatio]="21 / 9"
+        format="png"
+        style="max-height: 500px"
+        (imageCropped)="bannerImageCropped($event)"
+      ></image-cropper>
+    </div>
+  </div>
+</div>

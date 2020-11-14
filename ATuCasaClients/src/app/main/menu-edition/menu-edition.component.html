@@ -1,1 +1,236 @@
-<p>menu-edition works!</p>
+<div class="container-fluid py-5 px-4">
+  <div class="px-3 row d-flex justify-content-between align-items-center">
+    <div class="col-md-12">
+      <h1 class="text-primary font-weight-light mb-3">
+        Mi Carta
+        <button
+          pButton
+          pRipple
+          type="button"
+          icon="pi pi-plus"
+          class="p-button-rounded"
+          pTooltip="Agregar Categoría"
+        ></button>
+      </h1>
+      <p class="text-muted font-weight-light">
+        Desde aquí puedes realizar la edición de tu carta de productos. Agregar
+        nuevos productos y seleccionar los adicionales que pueden tener cada uno
+        de tus productos. A medida que realices la publciación y modificación de
+        estos, se los usuarios verán las actualizaciones en tiempo real.
+        <br /><br />
+        Tu carta estará compuesta por productos que se encuentran en diferentes
+        categorías (Bebidas, Postres, etc.) Debes crear categorías y dentro de
+        cada una de estas, agregar los productos. Cada uno de los productos
+        peude contener adicionales, precios de descuento, una descripción y
+        fotos.
+      </p>
+
+      <hr class="my-3" />
+
+      <p-accordion [multiple]="true">
+        <p-accordionTab
+          [header]="category.nombre"
+          *ngFor="let category of storeMenu"
+          [selected]="true"
+        >
+          <div
+            class="p-shadow-3 p-4 w-100 d-flex justify-content-start align-items-center"
+            *ngFor="let item of category.items"
+            style="
+              box-shadow: 0 0 4px 0px rgba(95, 95, 95, 0.836);
+              margin-bottom: 1rem;
+              border-radius: 0.8rem;
+            "
+          >
+            <img
+              src="{{
+                item.image_path
+                  ? item.image_path
+                  : 'assets/images/restaurant-default-pic.png'
+              }} "
+              style="width: 125px; height: 125px; border-radius: 1rem"
+            />
+
+            <div class="ml-3 flex-fill">
+              <div class="d-flex justify-content-between align-items-center">
+                <p-inplace closable="true">
+                  <ng-template pTemplate="display">
+                    <span
+                      *ngIf="item.nombre"
+                      style="font-size: 1.5rem"
+                      class="text-primary"
+                      >{{ item.nombre }}</span
+                    >
+
+                    <span
+                      *ngIf="!item.nombre"
+                      style="font-size: 1.5rem"
+                      class="text-muted"
+                      >Producto sin título</span
+                    >
+                  </ng-template>
+                  <ng-template pTemplate="content">
+                    <input
+                      type="text"
+                      style="width: 70%"
+                      [(ngModel)]="item.nombre"
+                      pInputText
+                    />
+                  </ng-template>
+                </p-inplace>
+
+                <button
+                  pButton
+                  pRipple
+                  (click)="showItemMenu($event, item)"
+                  (contextmenu)="showItemMenu($event, item)"
+                  type="button"
+                  icon="pi pi-ellipsis-v"
+                  class="p-button-rounded p-button-text p-button-plain"
+                ></button>
+              </div>
+
+              <div class="w-100 my-3"></div>
+              <p-inplace class="w-100" closable="true">
+                <ng-template pTemplate="display">
+                  <span class="text-muted" *ngIf="item.descripcion">{{
+                    item.descripcion
+                  }}</span>
+                  <span class="text-muted" *ngIf="!item.descripcion"
+                    >Producto sin Descripción</span
+                  >
+                </ng-template>
+                <ng-template pTemplate="content">
+                  <textarea
+                    style="width: calc(100% - 70px)"
+                    [rows]="2"
+                    [(ngModel)]="item.descripcion"
+                    pInputTextarea
+                    autoResize="autoResize"
+                  ></textarea>
+                </ng-template>
+              </p-inplace>
+
+              <hr class="my-3" />
+
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-start align-items-center">
+                  <div class="d-flex justify-content-start align-items-center">
+                    <span class="text-primary">
+                      <i class="fas fa-dollar-sign mr-3"></i>
+                    </span>
+
+                    <p-inplace closable="true">
+                      <ng-template pTemplate="display">
+                        <span
+                          *ngIf="item.costo_base"
+                          [class.has-discount]="
+                            item.costo_descuento ? true : false
+                          "
+                          >{{ item.costo_base | currency }}</span
+                        >
+
+                        <span *ngIf="!item.costo_base"
+                          >Producto sin Precio</span
+                        >
+                      </ng-template>
+                      <ng-template pTemplate="content">
+                        <input
+                          type="number"
+                          [(ngModel)]="item.costo_base"
+                          pInputText
+                        />
+                      </ng-template>
+                    </p-inplace>
+
+                    <span
+                      *ngIf="item.costo_descuento && item.costo_base"
+                      class="ml-3 badge badge-pill badge-primary"
+                    >
+                      {{
+                        (item.costo_descuento * 100) / item.costo_base - 100
+                          | number: "1.0-0"
+                      }}%
+                    </span>
+                  </div>
+
+                  <div
+                    class="ml-4 d-flex justify-content-start align-items-center"
+                    *ngIf="item.costo_base"
+                  >
+                    <span class="text-primary">
+                      <i class="fas fa-tags mr-3"></i>
+                    </span>
+
+                    <p-inplace closable="true">
+                      <ng-template pTemplate="display">
+                        <span>{{
+                          item.costo_descuento
+                            ? (item.costo_descuento | currency)
+                            : "Sin Descuento"
+                        }}</span>
+                      </ng-template>
+                      <ng-template pTemplate="content">
+                        <input
+                          type="number"
+                          [(ngModel)]="item.costo_descuento"
+                          pInputText
+                        />
+                      </ng-template>
+                    </p-inplace>
+                  </div>
+                </div>
+
+                <div class="form-group d-flex align-items-center mb-0">
+                  <p-inputSwitch
+                    [disabled]="!canEnable(item)"
+                    [(ngModel)]="item.disponible"
+                  ></p-inputSwitch>
+                  <label
+                    *ngIf="canEnable(item) && item.disponible"
+                    class="text-primary ml-3 mb-0"
+                    ><b>Producto disponible</b></label
+                  >
+
+                  <label
+                    *ngIf="canEnable(item) && !item.disponible"
+                    class="text-primary ml-3 mb-0"
+                    ><b>Producto no disponible</b></label
+                  >
+
+                  <label *ngIf="!canEnable(item)" class="text-muted ml-3 mb-0"
+                    ><b>Producto Incompleto</b></label
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </p-accordionTab>
+      </p-accordion>
+    </div>
+  </div>
+</div>
+
+<p-sidebar
+  [(visible)]="showAdditionalsSidebar"
+  position="right"
+  [baseZIndex]="10000"
+  styleClass="sidebar-additionals"
+  blockScroll="true"
+  [showCloseIcon]="false"
+>
+
+<div class="header">
+  <h3>Edición de Adicionales</h3>
+  <p>Escoge los adicionales que deseas que esten disponibles para este producto</p>
+</div>
+
+
+</p-sidebar>
+
+<p-contextMenu
+  #cMenu
+  appendTo="body"
+  baseZIndex="1000"
+  [model]="itemMenu"
+></p-contextMenu>

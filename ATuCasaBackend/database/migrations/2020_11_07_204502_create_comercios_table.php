@@ -23,6 +23,9 @@ class CreateComerciosTable extends Migration
 
             $table->boolean('published')->default(false);
 
+            $table->boolean('email_verified')->default(false);
+            $table->boolean('whatsapp_verified')->default(false);
+
             //Nullable
 
             $table->string('logo_path',200)->nullable();

@@ -31,6 +31,19 @@ import {GMapModule} from 'primeng/gmap';
 import { LocationPropertiesComponent } from './main/profile-edition/location-properties/location-properties.component';
 import { GeneralPropertiesComponent } from './main/profile-edition/general-properties/general-properties.component';
 import { PlacesAutocompleteComponent } from './shared/components/places-autocomplete/places-autocomplete.component';
+import { CorporateImageComponent } from './main/profile-edition/corporate-image/corporate-image.component';
+import { ScheduleComponent } from './main/profile-edition/schedule/schedule.component';
+import { TaxingInfoComponent } from './main/profile-edition/taxing-info/taxing-info.component';
+import { WeekDayPipe } from './shared/pipes/week-day.pipe';
+import {TableModule} from 'primeng/table';
+import {CalendarModule} from 'primeng/calendar';
+import { ImageCropperModule } from 'ngx-image-cropper';
+import {AccordionModule} from 'primeng/accordion';
+import {InplaceModule} from 'primeng/inplace';
+import {InputTextareaModule} from 'primeng/inputtextarea';
+import {ContextMenuModule} from 'primeng/contextmenu';
+import {SidebarModule} from 'primeng/sidebar';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +60,11 @@ import { PlacesAutocompleteComponent } from './shared/components/places-autocomp
     ProfileEditionComponent,
     LocationPropertiesComponent,
     GeneralPropertiesComponent,
-    PlacesAutocompleteComponent
+    PlacesAutocompleteComponent,
+    CorporateImageComponent,
+    ScheduleComponent,
+    TaxingInfoComponent,
+    WeekDayPipe
   ],
   imports: [
     BrowserModule,
@@ -63,9 +80,17 @@ import { PlacesAutocompleteComponent } from './shared/components/places-autocomp
     NgxGaugeModule,
     TabViewModule,
     InputTextModule,
+    TableModule,
     ButtonModule,
     InputSwitchModule,
+    CalendarModule,
+    AccordionModule,
+    ImageCropperModule,
+    InplaceModule,
     GMapModule,
+    InputTextareaModule,
+    ContextMenuModule,
+    SidebarModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

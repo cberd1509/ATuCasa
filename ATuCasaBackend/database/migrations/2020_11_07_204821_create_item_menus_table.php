@@ -23,6 +23,7 @@ class CreateItemMenusTable extends Migration
             $table->string('descripcion',50);
             $table->string('image_path',100)->nullable();
             $table->float('costo_base');
+            $table->float('costo_descuento')->nullable();
             $table->boolean('disponible')->default(true);
 
             $table->timestamps();

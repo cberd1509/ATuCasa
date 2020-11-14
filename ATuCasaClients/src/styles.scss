@@ -47,6 +47,12 @@
   ;
 }
 
+.has-discount
+{
+  color: #aaa;
+  text-decoration: line-through;
+}
+
 //Styling del Menu Sidebar
 
 .menu-sidebar-container {
@@ -142,4 +148,76 @@ a.p-tabview-nav-link:hover {
 label
 {
   font-weight: 500;
+}
+
+p-tabview
+{
+  width: 100%;
+}
+
+.p-button:enabled:hover {
+  background: lighten($tertiary,10%);
+  color: #ffffff;
+  border-color: lighten($tertiary,10%);
+}
+
+
+.p-button {
+  color: #ffffff;
+  background: lighten($tertiary,20%);
+  border: 1px solid lighten($tertiary,20%);
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 3px;
+}
+
+
+.p-inputswitch.p-inputswitch-checked .p-inputswitch-slider {
+  background: $primary;
+}
+
+.p-inputswitch.p-inputswitch-checked:not(.p-disabled):hover .p-inputswitch-slider {
+  background: lighten($primary, 10%);
+}
+
+.p-tabview .p-tabview-nav li.p-highlight .p-tabview-nav-link {
+  background: #ffffff;
+  border-color: $primary;
+  color: $primary;
+}
+
+.p-tabview .p-tabview-nav li .p-tabview-nav-link:not(.p-disabled):focus {
+  outline: 0 none;
+  outline-offset: 0;
+  box-shadow: 0 0 0 0.2rem lighten($primary,50%);
+}
+
+.p-button.p-button-outlined {
+  background-color: transparent;
+  color: $primary;
+  border: 1px solid $primary;
+}
+
+.p-button.p-button-outlined:enabled:hover {
+  background: rgba(243, 33, 33, 0.04);
+  color: $primary;
+  border: 1px solid;
+}
+
+
+.sidebar-additionals
+{
+  background-color: white;
+  width: 30rem !important;
+  margin: 0;
+  padding: 0px;
+}
+
+.sidebar-additionals .header
+{
+  background-color: $primary;
+  color: white;
+  padding: 2rem 1.5rem;
+  width: 100%;
 }

@@ -17,8 +17,9 @@ class CreateComercioDisponibilidadsTable extends Migration
             $table->uuid('id')->primary();
             $table->uuid('comercio_id');
             $table->integer('dia_semana');
-            $table->string('hora_apertura',5);
-            $table->string('hora_cierre',5);
+            $table->boolean('apertura')->default(true);
+            $table->string('hora_apertura',5)->nullable();
+            $table->string('hora_cierre',5)->nullable();
 
             $table->foreign('comercio_id')
                   ->references('id')

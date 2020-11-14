@@ -1,0 +1,50 @@
+<div class="container-fluid">
+  <div class="row mt-3">
+    <div class="col-md-5">
+      <h2 class="text-primary mb-3">
+        Disponibilidad del Restaurante
+      </h2>
+      <p class="text-muted">
+        Desde aquí podrás configurar los horarios en los cuales deseas que tu
+        restaurante aparezca visible en <b>aTuCasa.com</b>. Selecciona los
+        horarios de apertura y cierre para cada uno de los días de la semana y
+        en caso de no operar durante uno de estos días, puedes marcar el
+        restaurante como cerrado.
+      </p>
+    </div>
+    <div class="col-md-7">
+      <p-table [value]="scheduleData">
+        <ng-template pTemplate="header">
+          <tr>
+            <th>Dia</th>
+            <th>Apertura</th>
+            <th>Hora Apertura</th>
+            <th>Hora Cierre</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-rowData>
+          <tr>
+            <td>{{ rowData.dia_semana | weekDay }}</td>
+            <td>
+              <p-inputSwitch [(ngModel)]="rowData.apertura"></p-inputSwitch>
+            </td>
+            <td>
+              <p-calendar
+                [(ngModel)]="rowData.hora_apertura"
+                [timeOnly]="true"
+                [disabled]="!rowData.apertura"
+              ></p-calendar>
+            </td>
+            <td>
+              <p-calendar
+                [(ngModel)]="rowData.hora_cierre"
+                [timeOnly]="true"
+                [disabled]="!rowData.apertura"
+              ></p-calendar>
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+</div>
