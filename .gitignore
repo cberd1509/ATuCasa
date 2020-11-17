@@ -2,3 +2,7 @@ docker-compose.yml
 **/*.env
 **/node_modules
 package.json
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml
